@@ -22,10 +22,11 @@ app.get("/", (req, res) => {
     const decoded = JSON.parse(Buffer.from(body, "base64").toString("ascii"));
     res.send(decoded);
   } catch (err) {
+    res.sendStatus(500);
     console.error(err);
   }
 });
 
 app.listen(PORT, ADDRESS, () => {
-  console.log(`Listening on: ${PORT}${ADDRESS}...`);
+  console.log(`Listening on: ${ADDRESS}:${PORT}...`);
 });
