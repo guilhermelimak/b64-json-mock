@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "sources": ["../../functions/index.ts"],
+  "sourceRoot": "/home/xx/proj/b64-json-mock/.netlify/functions-serve",
+  "sourcesContent": ["import { Handler } from \"@netlify/functions\";\n\nconst handler: Handler = (event, context) => {\n  const body = event.queryStringParameters?.body;\n\n  if (!body) {\n    return {\n      statusCode: 500,\n    };\n  }\n\n  try {\n    const decoded = Buffer.from(body, \"base64\").toString(\"ascii\");\n    return {\n      statusCode: 200,\n      body: decoded,\n    };\n  } catch (err) {\n    console.error(err);\n    return {\n      statusCode: 500,\n    };\n  }\n};\n\nexport { handler };\n"],
+  "mappings": ";;;;;;;;;AAAA;AAAA;AAAA;AAEA,IAAM,UAAmB,CAAC,OAAO,YAAY;AAF7C;AAGE,QAAM,OAAO,YAAM,0BAAN,mBAA6B;AAE1C,MAAI,CAAC,MAAM;AACT,WAAO;AAAA,MACL,YAAY;AAAA;AAAA;AAIhB,MAAI;AACF,UAAM,UAAU,OAAO,KAAK,MAAM,UAAU,SAAS;AACrD,WAAO;AAAA,MACL,YAAY;AAAA,MACZ,MAAM;AAAA;AAAA,WAED,KAAP;AACA,YAAQ,MAAM;AACd,WAAO;AAAA,MACL,YAAY;AAAA;AAAA;AAAA;",
+  "names": []
+}

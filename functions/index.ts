@@ -10,7 +10,7 @@ const handler: Handler = (event, context) => {
   }
 
   try {
-    const decoded = JSON.parse(Buffer.from(body, "base64").toString("ascii"));
+    const decoded = Buffer.from(body, "base64").toString("ascii");
     return {
       statusCode: 200,
       body: decoded,
